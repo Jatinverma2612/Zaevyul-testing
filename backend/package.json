@@ -1,0 +1,31 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cloudinary": "^2.10.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.6.2",
+    "google-auth-library": "^11.0.1",
+    "jsonwebtoken": "^9.0.3",
+    "libphonenumber-js": "^1.13.10",
+    "mongoose": "^9.9.1",
+    "nodemailer": "^9.0.5",
+    "pdfkit": "^0.19.1",
+    "puppeteer": "^25.8.0",
+    "razorpay": "^2.9.8"
+  }
+}

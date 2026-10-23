@@ -1,0 +1,21 @@
+{
+  "defaultCurrency": "USD",
+  "countryToCurrency": {
+    "IN": "INR",
+    "US": "USD",
+    "AU": "AUD",
+    "AE": "AED",
+    "GB": "GBP",
+    "DE": "EUR",
+    "FR": "EUR",
+    "IT": "EUR",
+    "ES": "EUR",
+    "NL": "EUR",
+    "BE": "EUR",
+    "AT": "EUR",
+    "IE": "EUR",
+    "FI": "EUR",
+    "PT": "EUR",
+    "GR": "EUR"
+  }
+}

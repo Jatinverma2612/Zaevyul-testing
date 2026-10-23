@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@theme {
+  /* ─────────────────────────────────────────────────────
+     ZAEVYUL PASHMINA — LUXURY DESIGN SYSTEM
+     ───────────────────────────────────────────────────── */
+  --color-snow: #faf8f3;
+  --color-raw-silk: #f5efe7;
+  --color-pashmina: #e8ded1;
+  --color-river-stone: #b8afa5;
+  --color-charcoal: #222222;
+
+  --color-walnut: #b58a5b;
+  --color-chinar: #825433;
+  --color-saffron: #a6741e;
+  --color-moss: #2e7d32;
+  --color-glacier: #4a6fa5;
+
+  --color-bg: #faf8f5;
+  --color-surface: #ffffff;
+  --color-surface-2: #f5efe7;
+  --color-border: #ece7e1;
+  --color-border-2: #bfb3a4;
+
+  --color-text-primary: #222222;
+  --color-text-secondary: #777777;
+  --color-text-caption: #a0a0a0;
+  --color-text-link: #b58a5b;
+
+  --color-success: #2e7d32;
+  --color-warning: #d98b2b;
+  --color-error: #c94c4c;
+  --color-info: #4a6fa5;
+
+  --font-serif: "Cormorant Garamond", "Georgia", serif;
+  --font-sans: "Manrope", system-ui, sans-serif;
+}
+
+/* ── RESET — cosmetic/box-model only, no layout opinions ── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a,
+  button,
+  [type='button'],
+  [type='reset'],
+  [type='submit'],
+  [role='button'],
+  label[for] {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [type='button']:disabled,
+  [type='reset']:disabled,
+  [type='submit']:disabled,
+  [role='button'][aria-disabled='true'] {
+    cursor: not-allowed;
+  }
+
+  ::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border-2);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-river-stone);
+  }
+}
+
+
+@utility scrollbar-none {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Toast Notifications styling for storefront */
+.toast-stack {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.toast {
+  background: var(--color-charcoal);
+  color: var(--color-snow);
+  padding: 11px 16px;
+  border-radius: 2px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  pointer-events: all;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: toast-in 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  max-width: 320px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(250, 248, 243, 0.1);
+}
+
+.toast.success {
+  border-left: 3px solid var(--color-walnut);
+}
+
+.toast.error {
+  border-left: 3px solid var(--color-error);
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

@@ -1,0 +1,11 @@
+<svg viewBox="0 0 62 24" width="62" height="24" xmlns="http://www.w3.org/2000/svg">
+  <rect width="62" height="24" rx="3" fill="#5C59FF"/>
+  <g transform="translate(5, 4.5)">
+    <!-- Shopping bag handle -->
+    <path d="M5 5A2 2 0 0 1 7 3a2 2 0 0 1 2 2" fill="none" stroke="#FFFFFF" stroke-width="1.1" stroke-linecap="round"/>
+    <!-- Shopping bag body -->
+    <rect x="3.5" y="5" width="7" height="6.5" rx="1" fill="none" stroke="#FFFFFF" stroke-width="1.1" stroke-linejoin="round"/>
+    <!-- "shop pay" text -->
+    <text x="14" y="11" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="8.5" font-weight="900" fill="#FFFFFF" letter-spacing="0.1">shop pay</text>
+  </g>
+</svg>
