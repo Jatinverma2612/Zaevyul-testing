@@ -44,6 +44,9 @@ const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:5174",
   "https://zaevyul.vercel.app",
+  "https://zaevyulpashminagallery.com",
+  "https://www.zaevyulpashminagallery.com",
+  "https://node.zaevyulpashminagallery.com",
 ];
 
 app.use(
