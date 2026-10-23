@@ -4,8 +4,24 @@
  * Does NOT import from or touch the admin api.js.
  */
 
-const CUSTOMER_BASE_URL =
-  import.meta.env.VITE_CUSTOMER_API_URL || "http://localhost:5000/api/customer";
+const rawCustomerUrl = (
+  import.meta.env.VITE_CUSTOMER_API_URL ||
+  import.meta.env.VITE_API_URL ||
+  "http://localhost:5000/api/customer"
+)
+  .trim()
+  .replace(/\/+$/, "");
+
+// Derive root URL (e.g., https://zaevyul-testing-backend.onrender.com)
+const backendOrigin = rawCustomerUrl.replace(/\/api\/(admin|customer|public)$/, "");
+
+const CUSTOMER_BASE_URL = rawCustomerUrl.endsWith("/api/customer")
+  ? rawCustomerUrl
+  : `${backendOrigin}/api/customer`;
+
+const PUBLIC_BASE_URL = import.meta.env.VITE_PUBLIC_API_URL
+  ? import.meta.env.VITE_PUBLIC_API_URL.trim().replace(/\/+$/, "")
+  : `${backendOrigin}/api/public`;
 
 /**
  * Low-level fetch wrapper for customer endpoints.
@@ -199,9 +215,7 @@ export const customerApi = {
         return await request(`/orders/${id}`);
       } catch (err) {
         try {
-          const PUBLIC_URL =
-            import.meta.env.VITE_PUBLIC_API_URL || "http://localhost:5000/api/public";
-          const res = await fetch(`${PUBLIC_URL}/orders/${id}`);
+          const res = await fetch(`${PUBLIC_BASE_URL}/orders/${id}`);
           if (res.ok) return await res.json();
         } catch {
           /* ignore */

@@ -1,7 +1,17 @@
-const BASE_URL =
-  import.meta.env.VITE_API_URL || "http://localhost:5000/api/admin";
-const PUBLIC_BASE_URL =
-  import.meta.env.VITE_PUBLIC_API_URL || "http://localhost:5000/api/public";
+const rawApiUrl = (import.meta.env.VITE_API_URL || "http://localhost:5000/api/admin")
+  .trim()
+  .replace(/\/+$/, "");
+
+// Derive root URL (e.g., https://zaevyul-testing-backend.onrender.com)
+const backendOrigin = rawApiUrl.replace(/\/api\/(admin|customer|public)$/, "");
+
+const BASE_URL = rawApiUrl.endsWith("/api/admin")
+  ? rawApiUrl
+  : `${backendOrigin}/api/admin`;
+
+const PUBLIC_BASE_URL = import.meta.env.VITE_PUBLIC_API_URL
+  ? import.meta.env.VITE_PUBLIC_API_URL.trim().replace(/\/+$/, "")
+  : `${backendOrigin}/api/public`;
 
 // Clean up legacy mock database caches from localStorage if present
 if (typeof window !== "undefined") {
